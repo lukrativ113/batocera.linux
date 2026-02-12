@@ -11,6 +11,7 @@ custom_features:
     choices:
       h264 (less latency): h264
       h265 (HEVC) (higher quality at lower bitrates): h265
+      av1 (AV1) (high quality, even lower bitrates): av1
   moonlight_resolution:
     prompt: VIDEO STREAM RESOLUTION
     choices:
@@ -39,6 +40,8 @@ custom_features:
       10Mbps (good for 1080p 60FPS): 1
       20Mbps (not supported by some routers): 2
       50Mbps (highest quality available): 3
+      90Mbps (higher than high, good for 4k): 4
+      150Mbps (better have a good local network): 5
   moonlight_sops:
     prompt: DYNAMICALLY CALCULATE OPTIMAL SETTINGS
     description: Streaming Optimal Playable Settings, overrides other settings if enabled.
