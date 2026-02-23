@@ -103,11 +103,28 @@ class MoonlightGenerator(Generator):
                 bitrate = '20000'
             case "3":
                 bitrate = '50000'
+            case "4":
+                bitrate = '90000'
+            case "5":
+                bitrate = '150000'
             case _:
                 bitrate = None  # Moonlight default
         if bitrate is not None:
             commandArray.append('--bitrate')
             commandArray.append(bitrate)
+
+        # codec
+        match system.config.get('moonlight_codec'):
+            case "h264":
+                codec = 'H.264'
+            case "h265":
+                codec = 'HEVC'
+            case 'av1':
+                codec = 'AV1'
+            case _:
+                codec = None
+        if codec is not None:
+            commandArray.extend(['--video-codec', codec])
 
         # quit remote app on exit
         if system.config.get("moonlight_quitapp"):

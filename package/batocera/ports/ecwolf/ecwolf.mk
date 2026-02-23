@@ -4,22 +4,22 @@
 #
 ################################################################################
 # Version: 2024-05-20
-ECWOLF_VERSION = d1de69a576d4bb39e89124185a6dfd6991202cb9
-ECWOLF_SITE = https://bitbucket.org/ecwolf/ecwolf.git
+ECWOLF_VERSION = 1.5pre
+ECWOLF_SITE = https://github.com/ECWolfEngine/ECWolf
 ECWOLF_SITE_METHOD=git
 ECWOLF_GIT_SUBMODULES=YES
 ECWOLF_LICENSE = Non-commercial
-ECWOLF_DEPENDENCIES = host-ecwolf sdl2 sdl2_mixer sdl2_net zlib bzip2 jpeg
+ECWOLF_DEPENDENCIES = host-ecwolf sdl2 sdl2_mixer sdl2_net zlib bzip2 jpeg libxmp
 ECWOLF_SUPPORTS_IN_SOURCE_BUILD = NO
 ECWOLF_EMULATOR_INFO = ecwolf.emulator.yml
 
 # We need the tools from the host package to build the target package
-HOST_ECWOLF_DEPENDENCIES = zlib bzip2
+HOST_ECWOLF_DEPENDENCIES = zlib bzip2 tar
 HOST_ECWOLF_CONF_OPTS += -DTOOLS_ONLY=ON
 HOST_ECWOLF_SUPPORTS_IN_SOURCE_BUILD = NO
 
 define HOST_ECWOLF_INSTALL_CMDS
-	# Skipping install, the tools are used directly via 
+	# Skipping install, the tools are used directly via
 	# `ImportExecutables.cmake` from the build directory.
 endef
 
